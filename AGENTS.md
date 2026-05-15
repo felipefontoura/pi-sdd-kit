@@ -6,11 +6,14 @@ This repository contains `@felipefontoura/pi-sdd-kit`, a Pi package that provide
 
 The package helps Pi users run an SDD workflow with explicit artifacts, human gates, traceability, and verification.
 
-Additional study/reference repository:
+Additional study/reference repositories:
 
 - https://github.com/felipefontoura/sdd-book
+- https://github.com/compozy/compozy/tree/main/skills
 
-Use this repository as conceptual study material for how the SDD workflow should be explained and used. Do not vendor or copy content from it unless explicitly requested.
+Use `sdd-book` as conceptual study material for how the SDD workflow should be explained and used.
+
+Use the Compozy skills as an inspiration for quality bar: technical rigor, explicit gates, verification discipline, review structure, controlled scope, and operational clarity. Do not vendor or copy content from either repository unless explicitly requested.
 
 Primary workflow:
 

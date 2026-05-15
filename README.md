@@ -33,6 +33,10 @@ For a deeper explanation of the SDD methodology and examples of how to use the w
 
 - [felipefontoura/sdd-book](https://github.com/felipefontoura/sdd-book)
 
+## Acknowledgements
+
+Special thanks to the [Compozy skills](https://github.com/compozy/compozy/tree/main/skills) project. Its skill design demonstrates an excellent level of technical rigor, operational quality, explicit gates, verification discipline, and practical AI workflow structure. This package was inspired by that quality bar and adapts similar principles to a lightweight SDD workflow for Pi.
+
 ---
 
 ## Why use this
