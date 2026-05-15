@@ -2,13 +2,13 @@
 
 A skill pack for the [Pi Coding Agent](https://www.npmjs.com/package/@earendil-works/pi-coding-agent) that implements a practical **Specification-Driven Development (SDD)** workflow for small and medium projects.
 
-It helps turn raw ideas into implemented software through explicit artifacts, human gates, traceability, and verification.
+It helps turn raw ideas into implemented software through explicit artifacts, human gates, validated status transitions, traceability, and verification.
 
 ```text
 IDEA → PLAN → PRD → SPEC → TASKS → EXEC → REVIEW
 ```
 
-The pack also includes skills to initialize the AI workspace, maintain reusable project context, inspect the current SDD status, and provide ready-to-use templates for users.
+The pack also includes skills to initialize the AI workspace, maintain reusable project context, inspect the current SDD status, consume optional upstream handoffs, produce downstream handoff briefs, and provide ready-to-use templates for users.
 
 ---
 
@@ -122,10 +122,11 @@ Examples:
 .ai/steering/product.md
 .ai/steering/tech-stack.md
 .ai/steering/conventions.md
+.ai/steering/principles.md
 .ai/steering/lp.md
 ```
 
-Use it for product vision, stack, conventions, UX rules, landing page rules, business domain guidance, or any context reused by multiple skills.
+Use it for product vision, stack, conventions, project principles, UX rules, landing page rules, business domain guidance, or any context reused by multiple skills.
 
 ---
 
@@ -168,7 +169,8 @@ Focuses on **WHAT/WHY**:
 - acceptance criteria;
 - EARS-style functional requirements;
 - non-functional requirements;
-- explicit out-of-scope boundaries.
+- explicit out-of-scope boundaries;
+- guided requirement questions and recorded decisions when ambiguity matters.
 
 Typical output:
 
@@ -176,6 +178,8 @@ Typical output:
 .ai/sdd/specs/001-feature-name/requirements.md
 .ai/sdd/specs/001-feature-name/.status
 ```
+
+Feature IDs are assigned from the actual directories under `.ai/sdd/specs/` using the next available numeric prefix. `.ai/sdd/INDEX.md` is a dashboard, not the numbering source.
 
 ---
 
@@ -206,12 +210,13 @@ Typical output:
 
 Creates `tasks.md` from an approved design.
 
-Tasks are small, dependency-aware, verifiable, and traceable to requirements.
+Tasks are small, dependency-aware, verifiable, and traceable to requirements. This step also performs the implementation readiness check, so users do not need a separate analysis command.
 
 Typical output:
 
 ```text
 .ai/sdd/specs/001-feature-name/tasks.md
+.ai/sdd/handoff/sdd-brief.md   # after tasks:approved
 ```
 
 ---
@@ -244,6 +249,7 @@ Typical output:
 
 ```text
 .ai/sdd/specs/001-feature-name/review.md
+.ai/sdd/handoff/sdd-brief.md   # refreshed after review:done
 ```
 
 ---
@@ -278,9 +284,11 @@ Available templates:
 
 ```text
 templates/sdd-index.md
+templates/sdd-workflow.md
 templates/steering-product.md
 templates/steering-tech-stack.md
 templates/steering-conventions.md
+templates/steering-principles.md
 templates/steering-landing-page.md
 templates/idea.md
 templates/plan.md
@@ -289,6 +297,7 @@ templates/design.md
 templates/tasks.md
 templates/task.md
 templates/review.md
+templates/handoff.md
 templates/issue.md
 templates/adr.md
 ```
@@ -307,10 +316,17 @@ The package separates reusable AI context from SDD-specific artifacts.
     product.md
     tech-stack.md
     conventions.md
+    principles.md
     lp.md
+  strategy/
+    handoff/
+      strategy-brief.md          # optional upstream input from pi-strategy or another package
   sdd/
     INDEX.md
+    WORKFLOW.md
     PLAN.md
+    handoff/
+      sdd-brief.md               # downstream SDD output contract
     ideas/
       001-feature-idea.md
     specs/
@@ -342,6 +358,26 @@ Examples:
 
 Artifacts specific to the Specification-Driven Development workflow.
 
+### Optional upstream handoff
+
+When present, SDD skills may read:
+
+```text
+.ai/strategy/handoff/strategy-brief.md
+```
+
+This file is optional. It can seed `/skill:sdd-idea`, `/skill:sdd-plan`, or `/skill:sdd-prd`, but it does **not** bypass SDD approval gates.
+
+### SDD handoff output
+
+After approved tasks, and again after completed review, SDD can write or refresh:
+
+```text
+.ai/sdd/handoff/sdd-brief.md
+```
+
+This is the consolidated output contract for downstream agents/packages. It summarizes source inputs, approved requirements, design decisions, task order, verification plan, review status, blockers, and readiness while preserving links to the original artifacts.
+
 ---
 
 ## Workflow states
@@ -364,7 +400,7 @@ implementation:done
 review:done
 ```
 
-Drafts may be saved before approval, but **drafts do not unlock gates**.
+Drafts may be saved before approval, but **drafts do not unlock gates**. Skills must validate `.status` before advancing a phase; artifact existence alone never counts as approval.
 
 ---
 
@@ -405,11 +441,22 @@ They also include mappings for:
 
 - requirements → design;
 - requirements → tasks;
-- requirements/tasks → review.
+- requirements/tasks → review;
+- SDD handoff → requirements, design, tasks, review, and `.status`.
 
 This helps both humans and AI notice uncovered requirements or implementation drift.
 
 ---
+
+## Workflow guide
+
+For a copyable user-facing guide to the SDD flow, see:
+
+```text
+templates/sdd-workflow.md
+```
+
+It documents the simple flow, gates, status rules, feature IDs, steering context, and recommended next actions.
 
 ## Recommended quickstart
 
@@ -425,7 +472,7 @@ This helps both humans and AI notice uncovered requirements or implementation dr
 /skill:sdd-steering
 ```
 
-For example: `product.md`, `tech-stack.md`, and `conventions.md`.
+For example: `product.md`, `tech-stack.md`, `conventions.md`, and optional `principles.md`.
 
 ### 3. Explore an idea
 
@@ -538,6 +585,7 @@ This kit follows a few principles:
 - **Tasks must be verifiable.**
 - **Review should validate against artifacts, not only opinion.**
 - **Global context belongs in `.ai/steering/`, not in every feature.**
+- **Handoffs are contracts between workflow stages, not replacements for source artifacts.**
 
 ---
 
@@ -571,6 +619,7 @@ templates/
   design.md
   tasks.md
   review.md
+  handoff.md
   adr.md
   ...
 ```

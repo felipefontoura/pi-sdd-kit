@@ -20,16 +20,17 @@ INIT prepares the project for consistent AI work. It creates the shared `.ai/` s
    - Use package-level `templates/` files as user-facing examples when available.
 
 2. Inspect the project.
-   - Check whether `.ai/`, `.ai/steering/`, and `.ai/sdd/` already exist.
+   - Check whether `.ai/`, `.ai/steering/`, `.ai/sdd/`, and `.ai/sdd/handoff/` already exist.
    - Read existing `.ai/steering/*.md`, `.ai/sdd/INDEX.md`, and `.ai/sdd/PLAN.md` if present.
+   - If `.ai/strategy/handoff/strategy-brief.md` exists, note it as optional upstream context for future `/skill:sdd-idea`, `/skill:sdd-plan`, or `/skill:sdd-prd` work.
    - Briefly inspect README, package files, docs, source tree, and verification scripts when available.
    - Do not overwrite existing AI artifacts without explicit approval.
 
 3. Clarify initialization scope.
    - Ask whether the user wants:
-     - minimal setup: directories + index only
-     - steering setup: product, tech stack, conventions
-     - SDD setup: index + optional first IDEA or PLAN
+     - minimal setup: directories + index + workflow guide only
+     - steering setup: product, tech stack, conventions, optional principles
+     - SDD setup: index + workflow guide + optional first IDEA or PLAN
      - domain setup: extra steering doc such as `lp.md`
    - Ask one question at a time.
    - Prefer inferred project facts from files, but confirm uncertain durable rules.
@@ -39,9 +40,12 @@ INIT prepares the project for consistent AI work. It creates the shared `.ai/` s
      - `product.md`
      - `tech-stack.md`
      - `conventions.md`
+     - optional `principles.md`
      - optional `<domain>.md`
    - Use `.ai/sdd/` for SDD artifacts:
      - `INDEX.md`
+     - optional `WORKFLOW.md` copied or adapted from `templates/sdd-workflow.md`
+     - `handoff/` directory for future `.ai/sdd/handoff/sdd-brief.md`
      - optional `PLAN.md` as draft only if the user wants planning now
    - Keep generated starter docs concise and mark uncertain items as Open Questions.
 
@@ -67,14 +71,21 @@ INIT prepares the project for consistent AI work. It creates the shared `.ai/` s
     product.md
     tech-stack.md
     conventions.md
+    principles.md        # optional
   sdd/
     INDEX.md
+    WORKFLOW.md          # optional guide
+    handoff/
 ```
 
 ## Starter INDEX.md
 
 ```markdown
 # SDD Index
+
+## Upstream Handoffs
+
+- `.ai/strategy/handoff/strategy-brief.md`: missing or available
 
 ## Plan
 
@@ -85,10 +96,23 @@ INIT prepares the project for consistent AI work. It creates the shared `.ai/` s
 | ID | Name | Status | Path |
 |----|------|--------|------|
 
+## Feature Workspace
+
+> Numbering source: actual directories under `.ai/sdd/specs/`, not this index.
+
+| Field | Value | Notes |
+|-------|-------|-------|
+| Next Feature ID | 001 | Recompute from filesystem before creating a new spec |
+| Numbering Issues | none | duplicate prefix / invalid status / non-canonical directory |
+
 ## Specs
 
 | ID | Feature | Status | Requirements | Design | Tasks | Review |
 |----|---------|--------|--------------|--------|-------|--------|
+
+## Handoff
+
+- `.ai/sdd/handoff/sdd-brief.md`: generated after approved tasks or completed review
 
 ## Next Actions
 
@@ -104,7 +128,10 @@ Common outputs:
 - `.ai/steering/product.md`
 - `.ai/steering/tech-stack.md`
 - `.ai/steering/conventions.md`
+- Optional `.ai/steering/principles.md`
 - `.ai/sdd/INDEX.md`
+- Optional `.ai/sdd/WORKFLOW.md`
+- `.ai/sdd/handoff/` directory
 - Optional `.ai/sdd/PLAN.md` draft
 - Optional `.ai/steering/<domain>.md`
 

@@ -16,12 +16,15 @@ Execution turns approved specs into code. The agent must stay within the task sc
 1. Load the SDD reference.
    - Read `../_shared/references/sdd-practical.md`.
    - Apply the Language Policy: respond and write artifacts in the user's initial chat language while keeping skill instructions and templates in EN-US.
-   - Load relevant `.ai/steering/*.md` files when present, especially `tech-stack.md` and `conventions.md`.
+   - Load relevant `.ai/steering/*.md` files when present, especially `tech-stack.md`, `conventions.md`, and `principles.md`.
 
-2. Locate the feature and task.
+2. Locate the feature and task, then validate the gate.
    - Use `.ai/sdd/specs/NNN-feature-name/`.
    - Read `.status`.
+   - Validate `.status` against the official status values from `sdd-practical.md`.
+   - If `.status` is missing or invalid, stop and ask the user to repair it; do not infer task approval from `tasks.md` existing.
    - Block if status is not `tasks:approved` or `implementation:in-progress`, unless the user explicitly requests a spike.
+   - If blocked, report the current status and recommend `/skill:sdd-tasks` approval as the next safe action.
    - Read `requirements.md`, `design.md`, `tasks.md`, and `decisions.md` if present.
    - Identify the requested task. If no task is specified, select the first incomplete task whose dependencies are complete and confirm with the user.
 
@@ -33,7 +36,8 @@ Execution turns approved specs into code. The agent must stay within the task sc
 4. Build an execution checklist.
    - Extract task work items, acceptance criteria, file targets, and verification items.
    - Print the checklist before editing.
-   - Set `.status` to `implementation:in-progress` when starting implementation.
+   - Set `.status` to `implementation:in-progress` when starting implementation from `tasks:approved`.
+   - If already `implementation:in-progress`, preserve that status while continuing incomplete approved tasks.
 
 5. Implement.
    - Keep scope limited to the selected task.
@@ -53,6 +57,7 @@ Execution turns approved specs into code. The agent must stay within the task sc
    - Mark the task complete only after implementation and verification pass.
    - If all tasks are complete, set `.status` to `implementation:done`.
    - Otherwise keep `.status` as `implementation:in-progress`.
+   - Update `.ai/sdd/INDEX.md` with the current status when practical; if not updated, tell the user the index may be stale.
 
 8. Report.
    - Summarize files changed.
@@ -75,6 +80,7 @@ Verdict: PASS/FAIL
 ## Critical Rules
 
 - Do not implement before `tasks:approved`.
+- Do not infer task approval from file existence; require valid `.status`.
 - Do not expand scope beyond the selected task.
 - Do not mark work complete without verification evidence.
 - Do not hide failing checks; report actual status.

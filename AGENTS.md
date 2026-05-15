@@ -69,10 +69,12 @@ skills/
 templates/
   README.md
   sdd-index.md
+  sdd-workflow.md
   steering-product.md
   steering-tech-stack.md
   steering-conventions.md
   steering-landing-page.md
+  steering-principles.md
   idea.md
   plan.md
   requirements.md
@@ -80,6 +82,7 @@ templates/
   tasks.md
   task.md
   review.md
+  handoff.md
   issue.md
   adr.md
 ```
@@ -143,14 +146,21 @@ Generated artifacts should live in user projects under:
 
 ```text
 .ai/
+  strategy/
+    handoff/
+      strategy-brief.md # optional upstream input from strategy packages
   steering/
     product.md
     tech-stack.md
     conventions.md
+    principles.md
     *.md
   sdd/
     INDEX.md
+    WORKFLOW.md        # optional workflow guide
     PLAN.md
+    handoff/
+      sdd-brief.md      # downstream SDD output contract
     ideas/
       001-feature-idea.md
     specs/
@@ -212,7 +222,8 @@ Templates should preserve lightweight traceability:
 
 - requirements → design;
 - requirements → tasks;
-- requirements/tasks/design → review.
+- requirements/tasks/design → review;
+- requirements/tasks/design/review → `.ai/sdd/handoff/sdd-brief.md`.
 
 Avoid heavy bureaucracy for small features, but do not remove traceability entirely.
 

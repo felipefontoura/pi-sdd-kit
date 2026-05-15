@@ -18,15 +18,20 @@ STATUS gives operational visibility across `.ai/sdd/` without changing artifacts
    - Apply the Language Policy: respond and write artifacts in the user's initial chat language while keeping skill instructions and templates in EN-US.
    - Use package-level `templates/sdd-index.md` as the dashboard reference when useful.
    - Load relevant `.ai/steering/*.md` files only if they help explain project context; do not summarize steering unless useful.
+   - Treat `.ai/strategy/handoff/strategy-brief.md` as optional upstream context and `.ai/sdd/handoff/sdd-brief.md` as optional downstream handoff output.
 
 2. Inspect the workspace.
    - Check whether `.ai/sdd/` exists.
    - Check `.ai/sdd/INDEX.md` if present.
    - Check `.ai/sdd/PLAN.md` if present.
+   - Check `.ai/strategy/handoff/strategy-brief.md` if present and report it as an available upstream handoff.
+   - Check `.ai/sdd/handoff/sdd-brief.md` if present and report its readiness/status summary.
    - List `.ai/sdd/ideas/*.md` if present.
    - List `.ai/sdd/specs/*/` directories.
    - For each spec directory, read `.status` when present.
    - For each spec directory, note presence of `requirements.md`, `design.md`, `tasks.md`, `review.md`, and `decisions.md`.
+   - Compute the next feature ID from actual spec directories using the shared Feature Workspace Identity algorithm; report it as informational only.
+   - Flag duplicate numeric prefixes, non-canonical spec directory names, missing `.status`, and invalid `.status` values.
 
 3. Assess gates.
    - Identify specs that are ready for PRD, SPEC, TASKS, EXEC, or REVIEW.
@@ -35,7 +40,7 @@ STATUS gives operational visibility across `.ai/sdd/` without changing artifacts
    - Identify specs whose `.status` conflicts with existing artifacts.
 
 4. Produce a concise dashboard.
-   - Group by Ideas, Plan, Specs, In Progress, Review Ready, and Blocked.
+   - Group by Upstream Handoffs, Plan, Ideas, Specs, Handoff Output, In Progress, Review Ready, and Blocked.
    - Include exact paths for important artifacts.
    - Include the current `.status` value for each spec.
    - Recommend one or more next commands such as `/skill:sdd-prd`, `/skill:sdd-spec`, `/skill:sdd-tasks`, `/skill:sdd-exec`, or `/skill:sdd-review`.
@@ -52,6 +57,9 @@ SDD STATUS
 Workspace: .ai/sdd
 Steering: .ai/steering present/missing
 
+Upstream Handoffs:
+- .ai/strategy/handoff/strategy-brief.md: present/missing
+
 Plan:
 - [missing/draft/approved] .ai/sdd/PLAN.md
 
@@ -62,6 +70,14 @@ Specs:
 - 001-feature — requirements:approved
   Artifacts: requirements.md yes, design.md no, tasks.md no, review.md no
   Next: /skill:sdd-spec
+
+Feature Workspace:
+- Next feature ID: 002
+- Numbering source: filesystem `.ai/sdd/specs/*/`
+- Issues: none / [duplicate prefix, invalid status, non-canonical directory]
+
+Handoff Output:
+- .ai/sdd/handoff/sdd-brief.md: present/missing/readiness
 
 Blocked / Attention:
 - [Path] [problem]
@@ -76,6 +92,9 @@ Recommended next action:
 - Prefer short dashboards over long commentary.
 - Do not infer approvals from file existence; use `.status` and artifact headers when available.
 - Flag missing or inconsistent status instead of silently normalizing it.
+- Compute numbering from actual directories, never from memory or `INDEX.md`.
+- When a strategy handoff exists but no SDD artifacts exist, recommend `/skill:sdd-plan` or `/skill:sdd-prd` depending on scope.
+- When tasks are approved but `sdd-brief.md` is missing or stale, recommend refreshing the SDD handoff.
 
 ## Critical Rules
 

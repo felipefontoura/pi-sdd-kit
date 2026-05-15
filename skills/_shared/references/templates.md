@@ -100,6 +100,64 @@ When creating artifacts, prefer the richer package-level templates when availabl
 - [Branch, commit, review, verification conventions]
 ```
 
+### Project Principles Steering
+
+```markdown
+# Project Principles
+
+> Status: Active
+> Last Updated: YYYY-MM-DD
+
+## Purpose
+
+[What these principles govern and when they should be used.]
+
+## How to Use These Principles
+
+- `MUST`: non-negotiable unless explicitly changed by the user.
+- `SHOULD`: strong default; exceptions need a reason.
+- `MAY`: allowed option, not a requirement.
+- If principles conflict with approved SDD artifacts, stop and ask which source should be updated.
+
+## Principles
+
+### P-001: [Principle name]
+
+**Level:** MUST  
+**Rule:** [Clear rule that can be evaluated.]  
+**Reason:** [Why this matters.]  
+**Applies to:** PRD, SPEC, TASKS, EXEC, REVIEW
+
+### P-002: [Principle name]
+
+**Level:** SHOULD  
+**Rule:** [Clear default behavior.]  
+**Reason:** [Why this is preferred.]  
+**Applies to:** [Relevant phases]
+
+## Decision Rules
+
+1. Safety, privacy, and compliance requirements take priority.
+2. Approved product requirements take priority over implementation preferences.
+3. Simpler solutions are preferred unless they fail an approved requirement.
+4. If the trade-off is unclear, ask the user.
+
+## Review Expectations
+
+- [ ] Requirements respect relevant `MUST` principles.
+- [ ] Design justifies exceptions to `SHOULD` principles.
+- [ ] Tasks include verification for principle-sensitive work.
+
+## Change Policy
+
+- Changes to `MUST` principles require explicit user approval.
+- Changed principles do not silently rewrite approved SDD artifacts.
+
+## Open Questions
+
+- [Question]
+```
+
 ## Idea Template
 
 ```markdown
@@ -186,6 +244,7 @@ When creating artifacts, prefer the richer package-level templates when availabl
 - Product: @.ai/steering/product.md or N/A
 - Tech Stack: @.ai/steering/tech-stack.md or N/A
 - Conventions: @.ai/steering/conventions.md or N/A
+- Principles: @.ai/steering/principles.md or N/A
 
 ## Personas
 
@@ -302,13 +361,32 @@ THE SYSTEM SHALL [behavior]
 
 - [What will not be included now]
 
+## Decisions
+
+### D-001: [Decision title]
+
+**Decision:** [Resolved product or requirement direction.]  
+**Reason:** [Why this direction was chosen.]  
+**Source:** Q-001 or direct user instruction  
+**Impacts:** FR-001, NFR-001, Out of Scope, or other affected sections
+
+## Questions
+
+### Q-001: [Question]
+
+**Status:** open  
+**Why it matters:** [What this affects: scope, UX, data behavior, security/privacy, acceptance criteria, or NFRs.]  
+**Recommended:** Option A — [brief reason]
+
+| Option | Answer | Choose this if... | Impact |
+|--------|--------|-------------------|--------|
+| A | [Option] | [When this option fits] | [Requirement impact] |
+| B | [Option] | [When this option fits] | [Requirement impact] |
+| Custom | [User-defined answer] | None of the options fit | Update requirements accordingly |
+
 ## Glossary
 
 - **Term:** Definition
-
-## Open Questions
-
-- [Question]
 ```
 
 ## Design Template
@@ -428,6 +506,25 @@ flowchart TD
 | FR-001 | T1, T2 | |
 | NFR-001 | T3 | |
 
+## Implementation Readiness Check
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Must Have requirements have tasks | Pass/Fail | |
+| Requirements are covered by design | Pass/Fail/Partial | |
+| Critical Questions are answered | Pass/Fail/N/A | |
+| Tasks have dependencies, acceptance criteria, files, and verification | Pass/Fail | |
+| Verification commands are known or marked manual/N/A | Pass/Fail | |
+
+## Implementation Slices
+
+### MVP Slice
+
+- **Goal:** [Smallest valuable increment]
+- **User Stories:** US-001 or N/A
+- **Tasks:** T1, T2
+- **Independent validation:** [How this slice can be verified]
+
 ## Task T1: [Title]
 
 **Priority:** P0  
@@ -513,4 +610,73 @@ Verdict: PASS/FAIL
 - [ ] Approved
 - [ ] Approved with follow-ups
 - [ ] Needs fixes
+```
+
+## SDD Handoff Template
+
+```markdown
+# SDD Handoff Brief: [Feature or Product]
+
+> Status: Draft
+> Readiness: Not ready / Ready for implementation / Ready for QA / Ready for release
+> Updated: YYYY-MM-DD
+
+## Metadata
+
+- **Spec ID:** `[NNN-feature-name]`
+- **Spec Path:** `.ai/sdd/specs/NNN-feature-name/`
+- **Current .status:** `[status value]`
+- **Source Inputs:** `.ai/strategy/handoff/strategy-brief.md` or N/A; `.ai/sdd/ideas/...` or N/A; `.ai/sdd/PLAN.md` or N/A
+
+## Product / Feature Summary
+
+- **User / Audience:** [Who this serves]
+- **Problem:** [Problem being solved]
+- **Outcome:** [Expected user/business outcome]
+- **Scope:** [What is included]
+- **Out of Scope:** [What is excluded]
+
+## Requirements Summary
+
+- **Key User Stories:** `US-001`, `US-002`
+- **Must Have Functional Requirements:** `FR-001`, `FR-002`
+- **Important NFRs:** `NFR-001`, `NFR-002`
+- **Acceptance Notes:** [Critical criteria or caveats]
+
+## Design Summary
+
+- **Approach:** [High-level approach]
+- **Components / Modules:** [Main areas]
+- **Data / State:** [Important decisions]
+- **APIs / Integrations:** [Interfaces or N/A]
+- **Technical Decisions:** `TD-001`, `TD-002`
+- **Risks / Constraints:** [Known risks]
+
+## Implementation Plan
+
+- **Task Source:** `.ai/sdd/specs/NNN-feature-name/tasks.md`
+- **Recommended Order:** `T1 -> T2 -> T3`
+- **Key Tasks:** `T1`, `T2`
+- **Likely Files / Areas:** [Paths]
+
+## Verification Plan
+
+```text
+Command: [exact command or manual check]
+Expected: [what should pass]
+```
+
+## Review / Release Notes
+
+- **Review Artifact:** `.ai/sdd/specs/NNN-feature-name/review.md` or N/A
+- **Review Verdict:** Approved / Approved with follow-ups / Needs fixes / Not reviewed
+- **Known Follow-ups:** [Issues or N/A]
+
+## Handoff Readiness
+
+- **Ready for Implementation:** yes/no
+- **Ready for QA:** yes/no
+- **Ready for Release:** yes/no
+- **Blockers:** [Missing approvals, failed verification, or N/A]
+- **Recommended Next Action:** [Next package, skill, or human action]
 ```

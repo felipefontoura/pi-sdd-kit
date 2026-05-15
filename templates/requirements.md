@@ -90,6 +90,40 @@ THE SYSTEM SHALL [observable behavior]
 
 > Do not include implementation details such as database schema, API design, framework choice, or component structure.
 
+## Decisions
+
+Use this section for resolved product or requirement choices that guide the PRD.
+
+### D-001: [Decision title]
+
+**Decision:** [Resolved direction.]  
+**Reason:** [Why this direction was chosen.]  
+**Source:** Q-001 or direct user instruction  
+**Impacts:** FR-001, NFR-001, Out of Scope, or other affected sections
+
+## Questions
+
+Use this section for open or answered requirement questions. Open critical questions should be resolved before approval.
+
+### Q-001: [Question]
+
+**Status:** open  
+**Why it matters:** [What this affects: scope, UX, data behavior, security/privacy, acceptance criteria, or NFRs.]  
+**Recommended:** Option A — [brief reason]
+
+| Option | Answer | Choose this if... | Impact |
+|--------|--------|-------------------|--------|
+| A | [Option] | [When this option fits] | [Requirement impact] |
+| B | [Option] | [When this option fits] | [Requirement impact] |
+| C | [Option] | [When this option fits] | [Requirement impact] |
+| Custom | [User-defined answer] | None of the options fit | Update requirements accordingly |
+
+### Q-002: [Question]
+
+**Status:** answered  
+**Answer:** [Final answer.]  
+**Decision:** D-001
+
 ## Success Metrics
 
 | Metric | Target / Signal | Notes |

@@ -18,12 +18,15 @@ Design defines how the approved requirements will be implemented. It should be d
    - Apply the Language Policy: respond and write artifacts in the user's initial chat language while keeping skill instructions and templates in EN-US.
    - Read `../_shared/references/templates.md` when drafting the artifact.
    - Use package-level `templates/design.md` as the user-facing template when available.
-   - Load relevant `.ai/steering/*.md` files when present, especially `product.md`, `tech-stack.md`, and `conventions.md`.
+   - Load relevant `.ai/steering/*.md` files when present, especially `product.md`, `tech-stack.md`, `conventions.md`, and `principles.md`.
 
-2. Locate the feature.
+2. Locate the feature and validate the gate.
    - Use `.ai/sdd/specs/NNN-feature-name/`.
    - Read `.status`.
+   - Validate `.status` against the official status values from `sdd-practical.md`.
+   - If `.status` is missing or invalid, stop and ask the user to repair it; do not infer approval from `requirements.md` existing.
    - Block if status is not `requirements:approved`, unless the user explicitly asks for a non-binding draft spike.
+   - If blocked, report the current status and recommend `/skill:sdd-prd` approval as the next safe action.
    - Read `requirements.md` completely.
 
 3. Explore project context.
@@ -54,8 +57,11 @@ Design defines how the approved requirements will be implemented. It should be d
 
 7. Save draft and gate.
    - Save draft design to `.ai/sdd/specs/NNN-feature-name/design.md` with `> Status: Draft` when useful for collaboration.
+   - Set `.status` to `design:draft` only after a binding design draft is created from `requirements:approved`.
+   - For non-binding draft spikes, do not advance `.status`; clearly label the draft as non-binding.
    - Keep `.status` as `design:draft` until explicit approval.
-   - After explicit approval, update the artifact status to approved and set `.status` to `design:approved`.
+   - After explicit approval, update the artifact status header to approved and set `.status` to `design:approved`.
+   - Update `.ai/sdd/INDEX.md` with the current status when practical; if not updated, tell the user the index may be stale.
 
 ## Output
 
@@ -78,3 +84,4 @@ Design defines how the approved requirements will be implemented. It should be d
 - Do not silently change requirements; if the design reveals a requirements problem, stop and ask whether to update `requirements.md`.
 - Do not mark design approved without explicit user approval.
 - Draft designs may be saved, but they do not authorize task execution or implementation.
+- Do not infer requirements approval from file existence; require valid `.status`.

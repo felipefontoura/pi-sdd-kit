@@ -18,13 +18,17 @@ Review checks whether the delivered code matches the product requirements, techn
    - Apply the Language Policy: respond and write artifacts in the user's initial chat language while keeping skill instructions and templates in EN-US.
    - Read `../_shared/references/templates.md` when writing the review artifact.
    - Use package-level `templates/review.md` as the user-facing template when available.
-   - Load relevant `.ai/steering/*.md` files when present, especially conventions and verification rules.
+   - Use the SDD Handoff Template and package-level `templates/handoff.md` when refreshing `.ai/sdd/handoff/sdd-brief.md` after review.
+   - Load relevant `.ai/steering/*.md` files when present, especially conventions, principles, and verification rules.
 
-2. Locate the feature.
+2. Locate the feature and validate the gate.
    - Use `.ai/sdd/specs/NNN-feature-name/`.
    - Read `.status`.
+   - Validate `.status` against the official status values from `sdd-practical.md`.
+   - If `.status` is missing or invalid, stop and ask the user to repair it; do not infer implementation completion from files or task checkboxes alone.
    - Prefer reviewing after `implementation:done`.
-   - If implementation is still in progress, state that the review is partial.
+   - If status is `implementation:in-progress`, state that the review is partial and do not set `.status` to `review:done`.
+   - If status is earlier than `implementation:in-progress`, block unless the user explicitly asks for a non-final artifact review.
    - Read `requirements.md`, `design.md`, `tasks.md`, and `decisions.md` if present.
 
 3. Identify review scope.
@@ -53,7 +57,14 @@ Review checks whether the delivered code matches the product requirements, techn
    - Use the Review Template from `../_shared/references/templates.md`.
    - Save as `.ai/sdd/specs/NNN-feature-name/review.md`.
    - Include coverage tables for requirements, tasks, and design decisions, plus quality check, verification result, issues found, and verdict.
-   - Set `.status` to `review:done` only if the review is complete and the verdict is not blocked by missing information.
+   - Set `.status` to `review:done` only when starting from `implementation:done`, the review is complete, and the verdict is not blocked by missing information.
+   - Do not advance `.status` for partial or non-final artifact reviews.
+   - Update `.ai/sdd/INDEX.md` with the current status when practical; if not updated, tell the user the index may be stale.
+
+8. Refresh the SDD handoff when review is complete.
+   - If `.status` becomes `review:done`, update `.ai/sdd/handoff/sdd-brief.md` with review verdict, verification evidence summary, known follow-ups, blockers, and readiness for QA/release.
+   - Preserve exact source paths to the reviewed spec artifacts.
+   - Do not mark ready for release when verdict is `Needs fixes` or verification failed.
 
 ## Verdict Rules
 
@@ -61,9 +72,17 @@ Review checks whether the delivered code matches the product requirements, techn
 - `Approved with follow-ups`: core requirements pass, only low/medium non-blocking issues remain.
 - `Needs fixes`: any Must Have requirement fails, verification fails, or high/critical issue exists.
 
+## Output
+
+- `.ai/sdd/specs/NNN-feature-name/review.md`
+- Updated `.status` when complete
+- Refreshed `.ai/sdd/handoff/sdd-brief.md` when `.status` becomes `review:done`
+
 ## Critical Rules
 
 - Do not fix issues in this skill unless the user explicitly asks to switch to implementation.
 - Do not mark review done if verification was skipped without explanation.
+- Do not infer implementation completion from files or task checkboxes alone; require valid `.status`.
 - Do not approve code that diverges from requirements, design, or traceability mappings unless the spec has been explicitly updated.
 - Do not create noisy review reports; prioritize actionable findings.
+- Do not use the handoff to hide review failures; blockers and failed verification must be explicit.

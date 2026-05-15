@@ -13,6 +13,7 @@
 - Product: @.ai/steering/product.md or N/A
 - Tech Stack: @.ai/steering/tech-stack.md or N/A
 - Conventions: @.ai/steering/conventions.md or N/A
+- Principles: @.ai/steering/principles.md or N/A
 - Domain: @[optional domain steering] or N/A
 
 ## Personas

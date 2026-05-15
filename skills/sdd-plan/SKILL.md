@@ -18,13 +18,15 @@ PLAN is the bridge between open-ended IDEA exploration and feature-level REQUIRE
    - Apply the Language Policy: respond and write artifacts in the user's initial chat language while keeping skill instructions and templates in EN-US.
    - Read `../_shared/references/templates.md` when drafting the artifact.
    - Use package-level `templates/plan.md` as the user-facing template when available.
-   - Load relevant `.ai/steering/*.md` files when present, especially `product.md`, `tech-stack.md`, and `conventions.md`.
+   - Load relevant `.ai/steering/*.md` files when present, especially `product.md`, `tech-stack.md`, `conventions.md`, and `principles.md`.
+   - If `.ai/strategy/handoff/strategy-brief.md` exists, read it as optional upstream context; use it to reduce rediscovery, but do not require it or bypass plan approval.
 
 2. Gather context.
    - Read `.ai/sdd/ideas/*.md` relevant to the requested project or feature set.
    - Read existing `.ai/sdd/PLAN.md` when updating.
    - Inspect `.ai/sdd/specs/` if feature specs already exist.
    - Briefly inspect project README or product docs when available.
+   - When a strategy handoff is used, reflect it in plan source/context notes and call out any unresolved readiness gaps.
 
 3. Clarify planning scope.
    - Ask one question at a time.

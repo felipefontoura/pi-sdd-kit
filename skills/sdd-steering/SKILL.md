@@ -9,7 +9,7 @@ Create or update reusable project context in `.ai/steering/`.
 
 ## Purpose
 
-Steering documents capture stable project guidance that many skills can reuse. They are not SDD feature artifacts; they describe the broader product, stack, conventions, and domain rules that should guide IDEA, PLAN, PRD, SPEC, TASKS, EXEC, REVIEW, and other AI workflows.
+Steering documents capture stable project guidance that many skills can reuse. They are not SDD feature artifacts; they describe the broader product, stack, principles, conventions, and domain rules that should guide IDEA, PLAN, PRD, SPEC, TASKS, EXEC, REVIEW, and other AI workflows.
 
 ## Workflow
 
@@ -29,6 +29,7 @@ Steering documents capture stable project guidance that many skills can reuse. T
    - `product.md` for product vision, users, value, boundaries, success metrics, glossary.
    - `tech-stack.md` for runtime, frameworks, libraries, infrastructure, verification commands, constraints.
    - `conventions.md` for code style, architecture patterns, naming, testing, accessibility/security, workflow.
+   - `principles.md` for project principles, MUST/SHOULD rules, decision rules, review expectations, and governance-like guidance.
    - Domain-specific docs such as `lp.md`, `payments.md`, `brand.md`, or `content.md` when the user wants reusable guidance for a specific workflow.
 
 4. Clarify missing context.
@@ -41,6 +42,8 @@ Steering documents capture stable project guidance that many skills can reuse. T
    - Use the Steering Templates from `../_shared/references/templates.md`.
    - Keep docs concise and stable.
    - Separate facts from preferences and open questions.
+   - For `principles.md`, prefer practical `MUST`, `SHOULD`, and `MAY` rules over legalistic language such as "constitution".
+   - For `principles.md`, help non-technical users choose principles with guided options and examples instead of asking broad governance questions.
    - Do not duplicate feature-level requirements from `.ai/sdd/specs/`.
 
 6. Review with the user.
@@ -59,6 +62,7 @@ Common outputs:
 - `.ai/steering/product.md`
 - `.ai/steering/tech-stack.md`
 - `.ai/steering/conventions.md`
+- `.ai/steering/principles.md`
 - Optional `.ai/steering/<domain>.md`
 
 ## Quality Bar
@@ -67,6 +71,7 @@ Common outputs:
 - Steering must be concise enough to remain useful as context.
 - Stack and verification commands should be based on actual project files when possible.
 - Conventions should describe existing patterns, not aspirational rewrites, unless the user explicitly approves a new convention.
+- Principles should be stable, actionable, and easy to evaluate during PRD, SPEC, TASKS, EXEC, and REVIEW.
 - Open Questions should remain visible instead of being guessed.
 
 ## Critical Rules

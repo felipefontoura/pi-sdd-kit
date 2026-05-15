@@ -18,12 +18,14 @@ Use this skill to create cognitive clarity before formal planning. IDEA is diver
    - Apply the Language Policy: respond and write artifacts in the user's initial chat language while keeping skill instructions and templates in EN-US.
    - Read `../_shared/references/templates.md` only when writing the final artifact.
    - Use package-level `templates/idea.md` as the user-facing template when available.
-   - Load relevant `.ai/steering/*.md` files when present, especially product or domain context.
+   - Load relevant `.ai/steering/*.md` files when present, especially product, principles, or domain context.
+   - If `.ai/strategy/handoff/strategy-brief.md` exists, read it as optional upstream context; use it to seed exploration, but do not require it or treat it as approved SDD scope.
 
 2. Establish the workspace.
    - Use `.ai/sdd/ideas/` for idea artifacts.
    - Create `.ai/sdd/ideas/` if it does not exist.
    - If `.ai/sdd/PLAN.md` or `.ai/sdd/specs/` exists, briefly inspect them to avoid duplicating an existing direction.
+   - If using the optional strategy handoff, record it as a source path in the idea artifact.
 
 3. Explore the raw idea.
    - Ask one question at a time.

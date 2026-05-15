@@ -12,6 +12,48 @@
 | FR-001 | T1, T2 | |
 | NFR-001 | T3 | |
 
+## Design Coverage Check
+
+| Requirement | Design Coverage | Status | Notes |
+|-------------|-----------------|--------|-------|
+| FR-001 | design.md section / TD-001 | Pass/Fail/Partial | |
+| NFR-001 | design.md section / TD-002 | Pass/Fail/Partial | |
+
+## Implementation Readiness Check
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Must Have requirements have tasks | Pass/Fail | |
+| Tasks map to requirements, NFRs, design decisions, or enabling work | Pass/Fail | |
+| Critical Questions in requirements.md are answered | Pass/Fail/N/A | |
+| Tasks have dependencies, acceptance criteria, files, and verification | Pass/Fail | |
+| Verification commands are identified or marked manual/N/A | Pass/Fail | |
+| No blocking design or requirements gaps remain | Pass/Fail | |
+
+> Do not approve tasks while any readiness check has blocking `Fail` status.
+
+## Implementation Slices
+
+Use this section when user-story or MVP slices improve clarity. Keep it short for small features.
+
+### MVP Slice
+
+- **Goal:** [Smallest valuable increment]
+- **User Stories:** US-001
+- **Tasks:** T1, T2
+- **Independent validation:** [How this slice can be verified]
+
+### US-001 Slice: [Title]
+
+- **Goal:** [What this user story delivers]
+- **Tasks:** T1, T2
+- **Independent validation:** [How to verify this story without unrelated stories]
+
+### Polish / Cross-Cutting
+
+- **Tasks:** [T...] 
+- **Purpose:** [Cleanup, docs, performance, accessibility, security, or release readiness]
+
 ## Task Summary
 
 | Task | Title | Priority | Estimate | Dependencies | Status |
