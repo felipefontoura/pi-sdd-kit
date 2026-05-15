@@ -1,0 +1,40 @@
+{
+  "name": "@felipefontoura/pi-sdd-kit",
+  "version": "0.1.0",
+  "description": "Pi skill pack for practical Specification-Driven Development workflows",
+  "author": "Felipe Fontoura",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipefontoura/pi-sdd-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/felipefontoura/pi-sdd-kit/issues"
+  },
+  "homepage": "https://github.com/felipefontoura/pi-sdd-kit#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi.dev",
+    "pi-coding-agent",
+    "skills",
+    "sdd",
+    "spec-driven-development"
+  ],
+  "files": [
+    "skills",
+    "templates",
+    "README.md",
+    "AGENTS.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}
