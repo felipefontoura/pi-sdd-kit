@@ -1,6 +1,6 @@
 ---
 name: sdd-spec
-description: 'Creates SDD design.md technical specifications from approved requirements. Use for HOW decisions: architecture, components, data/state, APIs, flows, edge cases, technical decisions, risks, and implementation FAQ. Do not use for requirements creation, task breakdown, or coding.'
+description: 'Core cognitive SDD skill for creating design.md technical specifications from approved requirements. Use when the conversation calls for HOW decisions: architecture, components, data/state, APIs, flows, edge cases, technical decisions, risks, and implementation FAQ, even without an explicit command. Do not use for requirements creation, task breakdown, or coding.'
 ---
 
 # SDD Spec / Design

@@ -1,6 +1,6 @@
 ---
 name: sdd-idea
-description: 'Explores raw product or feature ideas before planning in a lightweight SDD workflow. Use when the user wants to brainstorm, clarify, compare directions, or convert an early idea into a plan or requirements. Do not use for implementation or technical task execution.'
+description: 'Conversational SDD skill for exploring raw product or feature ideas before planning. Use when the user wants to brainstorm, clarify, compare directions, or convert an early idea into a plan or requirements, even without an explicit command. Do not use for implementation or technical task execution.'
 ---
 
 # SDD Idea

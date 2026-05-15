@@ -1,6 +1,6 @@
 ---
 name: sdd-init
-description: 'Initializes an AI workspace for SDD by creating or preparing .ai/, .ai/steering/, and .ai/sdd/ with reusable project context, index, and recommended next steps. Use at the start of a project or before adopting SDD. Do not use for feature-level specs or implementation.'
+description: 'Explicit command-style skill for initializing or adopting SDD in a project by creating or preparing .ai/, .ai/steering/, and .ai/sdd/. Use only when the user explicitly asks to initialize, set up, adopt, or bootstrap SDD. Do not auto-load for general planning, feature specs, status checks, or implementation.'
 ---
 
 # AI / SDD Init
@@ -9,7 +9,7 @@ Initialize a project workspace for AI-assisted Spec-Driven Development.
 
 ## Purpose
 
-INIT prepares the project for consistent AI work. It creates the shared `.ai/` structure, captures minimal reusable steering context, initializes SDD tracking, and recommends the next safe step.
+INIT prepares the project for consistent AI work. It creates the shared `.ai/` structure, captures minimal reusable steering context, initializes SDD tracking, and recommends the next safe step. Because this changes project structure, use it only after an explicit user request to initialize, set up, adopt, or bootstrap SDD.
 
 ## Workflow
 

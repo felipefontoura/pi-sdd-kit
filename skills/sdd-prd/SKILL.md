@@ -1,6 +1,6 @@
 ---
 name: sdd-prd
-description: 'Creates or updates SDD requirements.md artifacts from an approved idea, plan, or feature request. Use for defining WHAT and WHY: user stories, acceptance criteria, EARS functional requirements, non-functional requirements, and out-of-scope boundaries. Do not use for technical design or coding.'
+description: 'Core cognitive SDD skill for creating or updating requirements.md from an approved idea, plan, or feature request. Use when the conversation calls for defining WHAT and WHY: user stories, acceptance criteria, EARS functional requirements, NFRs, and boundaries, even without an explicit command. Do not use for technical design or coding.'
 ---
 
 # SDD PRD / Requirements

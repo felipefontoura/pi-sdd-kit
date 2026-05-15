@@ -1,6 +1,6 @@
 ---
 name: sdd-tasks
-description: 'Decomposes an approved SDD design.md into practical tasks.md for small and medium projects. Use for implementation planning, task dependencies, estimates, acceptance criteria, file targets, and verification steps. Do not use for technical design or direct coding.'
+description: 'Core cognitive SDD skill for decomposing an approved design.md into practical tasks.md. Use when the conversation calls for implementation planning, task dependencies, estimates, acceptance criteria, file targets, and verification steps, even without an explicit command. Do not use for technical design or direct coding.'
 ---
 
 # SDD Tasks

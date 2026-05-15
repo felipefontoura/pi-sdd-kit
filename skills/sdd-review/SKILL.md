@@ -1,6 +1,6 @@
 ---
 name: sdd-review
-description: 'Reviews an SDD implementation against requirements.md, design.md, and tasks.md, producing review.md with requirement coverage, code quality findings, verification evidence, and merge readiness. Use after implementation or before completion. Do not use to implement fixes directly.'
+description: 'Cognitive SDD skill for reviewing an implementation against requirements.md, design.md, and tasks.md, producing review.md with coverage, findings, verification evidence, and merge readiness. Use when the conversation calls for review after implementation or before completion, even without an explicit command. Do not use to implement fixes directly.'
 ---
 
 # SDD Review

@@ -1,6 +1,6 @@
 ---
 name: sdd-exec
-description: 'Implements approved SDD tasks from tasks.md with tight scope, repository conventions, tests, and verification evidence. Use when the user asks to execute a specific SDD task or implement an approved feature. Do not use before tasks are approved.'
+description: 'Explicit command-style skill for implementing approved SDD tasks from tasks.md with tight scope, tests, and verification evidence. Use only when the user explicitly asks to execute or implement a specific approved SDD task or feature. Do not auto-load for discussion, planning, review, or unapproved tasks.'
 ---
 
 # SDD Exec
@@ -9,7 +9,7 @@ Implement approved tasks while preserving traceability to requirements and desig
 
 ## Purpose
 
-Execution turns approved specs into code. The agent must stay within the task scope, follow project conventions, verify the result, and update task status only when evidence exists.
+Execution turns approved specs into code. The agent must stay within the task scope, follow project conventions, verify the result, and update task status only when evidence exists. Because this edits production code, use it only after an explicit user request to execute or implement approved SDD work.
 
 ## Workflow
 

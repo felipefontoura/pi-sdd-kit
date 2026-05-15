@@ -1,6 +1,6 @@
 ---
 name: sdd-steering
-description: 'Creates or updates reusable project steering documents in .ai/steering for product context, tech stack, conventions, and domain-specific guidance. Use before SDD planning/specs or when shared AI context needs to be established or corrected. Do not use for feature-level requirements or implementation.'
+description: 'Creates or updates reusable project steering documents in .ai/steering for product context, tech stack, conventions, and domain-specific guidance. Use when shared AI context needs to be established or corrected, but confirm before saving durable/global steering changes. Do not use for feature-level requirements or implementation.'
 ---
 
 # AI Steering
@@ -9,7 +9,7 @@ Create or update reusable project context in `.ai/steering/`.
 
 ## Purpose
 
-Steering documents capture stable project guidance that many skills can reuse. They are not SDD feature artifacts; they describe the broader product, stack, principles, conventions, and domain rules that should guide IDEA, PLAN, PRD, SPEC, TASKS, EXEC, REVIEW, and other AI workflows.
+Steering documents capture stable project guidance that many skills can reuse. They are not SDD feature artifacts; they describe the broader product, stack, principles, conventions, and domain rules that should guide IDEA, PLAN, PRD, SPEC, TASKS, EXEC, REVIEW, and other AI workflows. Because steering is durable project-wide context, draft freely but confirm before saving or changing global guidance.
 
 ## Workflow
 

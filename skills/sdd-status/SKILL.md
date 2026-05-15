@@ -1,6 +1,6 @@
 ---
 name: sdd-status
-description: 'Summarizes the current SDD workspace state from .ai/sdd and recommends the next safe action. Use to inspect ideas, plan, specs, statuses, incomplete tasks, blocked gates, and review readiness. Do not use to create specs or implement code.'
+description: 'Explicit command-style skill for inspecting .ai/sdd state and recommending the next safe action. Use only when the user explicitly asks for SDD status, progress, blockers, readiness, or next action. Do not auto-load for general SDD work; do not create specs or implement code.'
 ---
 
 # SDD Status
@@ -9,7 +9,7 @@ Inspect the SDD workspace and report current progress, blockers, and next action
 
 ## Purpose
 
-STATUS gives operational visibility across `.ai/sdd/` without changing artifacts. It helps the user understand what exists, what is approved, what is still draft, what is blocked, and what the next safe SDD step should be.
+STATUS gives operational visibility across `.ai/sdd/` without changing artifacts. It helps the user understand what exists, what is approved, what is still draft, what is blocked, and what the next safe SDD step should be. Treat it as an explicit utility command, not as a semantic auto-loaded skill for ordinary SDD authoring.
 
 ## Workflow
 

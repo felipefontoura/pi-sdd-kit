@@ -1,6 +1,6 @@
 ---
 name: sdd-plan
-description: 'Creates or updates the optional SDD PLAN.md from captured ideas or project goals. Use for medium projects or when multiple features need roadmap, personas, feature mapping, phases, dependencies, and open decisions before requirements. Do not use for feature-level requirements or coding.'
+description: 'Cognitive SDD skill for creating or updating optional PLAN.md from captured ideas or project goals. Use when the conversation calls for roadmap, personas, feature mapping, phases, dependencies, and open decisions before requirements, even without an explicit command. Do not use for feature-level requirements or coding.'
 ---
 
 # SDD Plan
