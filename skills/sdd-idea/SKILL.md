@@ -62,3 +62,4 @@ Use this skill to create cognitive clarity before formal planning. IDEA is diver
 - Do not collapse exploration into a plan too early.
 - Do not treat IDEA as approved scope; it is a thinking artifact.
 - Do not proceed without explicit user confirmation before writing the final idea file.
+- Do not silently promote or infer feature-spec approval states from IDEA artifacts.

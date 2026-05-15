@@ -458,6 +458,8 @@ templates/sdd-workflow.md
 
 It documents the simple flow, gates, status rules, feature IDs, steering context, and recommended next actions.
 
+It also makes explicit that clarification and analysis/checklist behavior are embedded in existing phases (`PRD` and `TASKS`) instead of extra public commands.
+
 ## Recommended quickstart
 
 ### 1. Initialize the project

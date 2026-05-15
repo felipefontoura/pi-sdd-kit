@@ -73,3 +73,4 @@ PLAN is the bridge between open-ended IDEA exploration and feature-level REQUIRE
 - Do not over-plan small one-screen work; recommend going directly to PRD when PLAN would be wasteful.
 - Do not mark a plan approved without explicit user approval.
 - Draft plans may be saved, but they do not authorize feature implementation.
+- Do not silently change feature-spec `.status` values from this skill unless the user explicitly requested a project-level plan status update.

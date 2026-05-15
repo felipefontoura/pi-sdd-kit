@@ -152,7 +152,8 @@ Index policy:
 
 - `.ai/sdd/INDEX.md` is a dashboard, not the source of truth for numbering.
 - Use the filesystem and `.status` files as source of truth.
-- When a skill creates or changes a spec status, update the relevant `INDEX.md` row when practical; if not practical, report that the index may be stale.
+- If a skill already writes a primary artifact (`requirements.md`, `design.md`, `tasks.md`, `review.md`, or `.status`), it should also update the relevant `INDEX.md` row in the same operation when practical.
+- If the skill does not update `INDEX.md`, it must explicitly report that the index may be stale.
 
 ## Status Values
 
