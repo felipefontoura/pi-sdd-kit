@@ -10,6 +10,10 @@ IDEA → PLAN → PRD → SPEC → TASKS → EXEC → REVIEW
 
 The pack also includes skills to initialize the AI workspace, maintain reusable project context, inspect the current SDD status, consume optional upstream handoffs, produce downstream handoff briefs, and provide ready-to-use templates for users.
 
+> **The spec is the contract. Code is a consequence of it.** This kit turns that principle into an enforceable workflow — explicit artifacts, human approval gates, and a `.status` file that is the single source of truth for what is approved.
+
+Built by [Felipe Fontoura](https://felipefontoura.com), who used Spec-Driven Development to ship a [13-app crypto fintech solo in 70 days](https://felipefontoura.com/articles/spec-driven-development-case-study). New to the methodology? Start with the complete guide: [**What Is Spec-Driven Development?**](https://felipefontoura.com/articles/what-is-spec-driven-development)
+
 ---
 
 ## Language policy
@@ -31,6 +35,9 @@ Example: if the user starts in Portuguese, the skill should answer in Portuguese
 
 For a deeper explanation of the SDD methodology and examples of how to use the workflow, see:
 
+- [What Is Spec-Driven Development? A Practitioner's Guide](https://felipefontoura.com/articles/what-is-spec-driven-development) — the complete method, the four pillars, and when to skip it
+- [Case study: 13 apps in 70 days, solo, with SDD](https://felipefontoura.com/articles/spec-driven-development-case-study) — the production build this kit came out of
+- [How to write a spec an AI can build from](https://felipefontoura.com/articles/how-to-write-a-spec) — the EARS format and copy-paste templates
 - [felipefontoura/sdd-book](https://github.com/felipefontoura/sdd-book)
 
 ## Acknowledgements
@@ -53,18 +60,27 @@ The result is less rework, less implicit scope, and more predictable implementat
 
 ---
 
+## How it compares to Spec Kit and Kiro
+
+GitHub Spec Kit and AWS Kiro popularized Spec-Driven Development, and both are excellent. Pi SDD Kit makes a few deliberately different design choices, tuned for a solo-to-small-team operator working across many sessions:
+
+- **Steering as durable project memory.** Global context — product, stack, conventions, principles — lives in `.ai/steering/`, separate from per-feature specs, so the agent reloads the same project memory every session instead of re-deriving it. This fixes "the AI forgets everything between chats" at the project level, not just per feature.
+- **`.status` is the only gate.** A one-line `.status` file per feature is the single source of truth for approval. The existence of a `design.md` never counts as approval — only the status token does. That is a harder guarantee than "the file is there, so it must be done."
+- **EARS by default.** Functional requirements are written in the Easy Approach to Requirements Syntax, so they are unambiguous enough for an agent to execute without guessing.
+- **Clarification and readiness checks are embedded, not extra phases.** Guided decisions (2–4 concrete options plus their impact) live inside the PRD step; the implementation readiness check lives inside TASKS. Fewer commands, same rigor.
+- **Handoffs are contracts between stages.** Optional upstream (`strategy-brief.md`) and downstream (`sdd-brief.md`) briefs let SDD plug into a larger multi-package pipeline without bypassing its gates.
+- **Lightweight and language-aware.** Plain-markdown skills for small and medium projects — no heavyweight tooling — that write artifacts in your chat language while keeping paths, status values, and IDs canonical in English.
+
+If you want the enterprise-scale, IDE-integrated experience, reach for Spec Kit or Kiro. If you want a transparent, file-based, gate-enforcing workflow you can read and modify, this is that.
+
+---
+
 ## Installation
 
 From npm:
 
 ```bash
 pi install npm:@felipefontoura/pi-sdd-kit
-```
-
-Local development install:
-
-```bash
-pi install /absolute/path/to/pi-sdd-kit
 ```
 
 Then reload Pi:
