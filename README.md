@@ -40,6 +40,10 @@ For a deeper explanation of the SDD methodology and examples of how to use the w
 - [How to write a spec an AI can build from](https://felipefontoura.com/articles/how-to-write-a-spec) — the EARS format and copy-paste templates
 - [felipefontoura/sdd-book](https://github.com/felipefontoura/sdd-book)
 
+## Related Pi packages
+
+- [pi-skill-model-handoff](https://github.com/felipefontoura/pi-skill-model-handoff) — my other Pi package: let each skill pick its own model and thinking level from the `SKILL.md` frontmatter (a cheap model to explore, a strong one to implement).
+
 ## Acknowledgements
 
 Special thanks to the [Compozy skills](https://github.com/compozy/compozy/tree/main/skills) project. Its skill design demonstrates an excellent level of technical rigor, operational quality, explicit gates, verification discipline, and practical AI workflow structure. This package was inspired by that quality bar and adapts similar principles to a lightweight SDD workflow for Pi.
