@@ -312,6 +312,19 @@ If skills do not appear, check:
 - Do not remove `templates/` from package files.
 - Do not generate artifacts in `.sdd/`; use `.ai/sdd/`.
 - Do not translate repository source out of EN-US.
+- Do not link to `felipefontoura.com` without the UTM suffix (see Links Back to the Site).
+
+## Links Back to the Site
+
+Every link from this repo (README, templates, skills) to `felipefontoura.com` must carry the off-site UTM scheme, so GA4 attributes the visit to this repo:
+
+```text
+?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit
+```
+
+- Lowercase, exactly these values; never `cpc`, `ppc`, `paid*` or `retargeting` (the site loader reads them as ads).
+- End the path with `/` before the `?` (`/articles/how-to-write-a-spec/?utm_…`) so the host does not redirect.
+- Links to other GitHub repos or third-party docs stay clean.
 
 ## Editing Guidelines for AI Agents
 
