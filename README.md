@@ -40,6 +40,8 @@ For a deeper explanation of the SDD methodology and examples of how to use the w
 - [Case study: 13 apps in 70 days, solo, with SDD](https://felipefontoura.com/articles/spec-driven-development-case-study/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit) — the production build this kit came out of
 - [How to write a spec an AI can build from](https://felipefontoura.com/articles/how-to-write-a-spec/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit) — the EARS format and copy-paste templates
 - [OpenSpec vs. Spec Kit vs. Superpowers vs. pi-sdd-kit](https://felipefontoura.com/articles/spec-driven-development-tools-compared/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit) — how this kit compares with the other SDD tools, and when to pick which
+- [OpenSpec tutorial: one real change, from install to archive](https://felipefontoura.com/articles/openspec/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit) — OpenSpec 1.14 run end to end on a real repo
+- [BMAD Method guide: install, workflow, real run](https://felipefontoura.com/articles/bmad-method/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit) — BMAD 6.12 tested in Claude Code, what it cost and where it breaks
 - [felipefontoura/sdd-book](https://github.com/felipefontoura/sdd-book)
 
 ## Related Pi packages
