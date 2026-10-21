@@ -12,7 +12,7 @@ The pack also includes skills to initialize the AI workspace, maintain reusable 
 
 > **The spec is the contract. Code is a consequence of it.** This kit turns that principle into an enforceable workflow — explicit artifacts, human approval gates, and a `.status` file that is the single source of truth for what is approved.
 
-Built by [Felipe Fontoura](https://felipefontoura.com/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit), who used Spec-Driven Development to ship a [13-app crypto fintech solo in 70 days](https://felipefontoura.com/articles/spec-driven-development-case-study/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit). New to the methodology? Start with the complete guide: [**What Is Spec-Driven Development?**](https://felipefontoura.com/articles/what-is-spec-driven-development/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit)
+Built by [Felipe Fontoura](https://felipefontoura.com/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit), who used Spec-Driven Development to ship a [13-app crypto fintech solo in 70 days](https://felipefontoura.com/articles/spec-driven-development-case-study/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit). The full method behind this kit is a free book: [**Spec-Driven Development**, PDF or EPUB](https://felipefontoura.com/get/sdd-book/?utm_source=github&utm_medium=referral&utm_campaign=pi-sdd-kit&utm_content=readme).
 
 ---
 
