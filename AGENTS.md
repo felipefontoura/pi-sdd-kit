@@ -323,6 +323,7 @@ Every link from this repo (README, templates, skills) to `felipefontoura.com` mu
 ```
 
 - Lowercase, exactly these values; never `cpc`, `ppc`, `paid*` or `retargeting` (the site loader reads them as ads).
+- A placement may add `&utm_content=`: `readme` for the README intro, `about` for the repo's About website.
 - End the path with `/` before the `?` (`/articles/how-to-write-a-spec/?utm_…`) so the host does not redirect.
 - Links to other GitHub repos or third-party docs stay clean.
 
